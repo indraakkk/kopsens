@@ -111,6 +111,22 @@
  *
  ****************************************************************************/
 
+/****************************************************************************
+ * 
+ * Modified by Indra Putra
+ * 18 Jan 2018
+ * for collecting temperature data from William Edison roasting machine
+ * 
+ ****************************************************************************/
+
+/****************************************************************************
+ *
+ * Change log.
+ *
+ * 18 Jan 2018:
+ * - Remove support for a potentio meter (5V, Pin A0)
+ ****************************************************************************/
+
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
@@ -145,10 +161,10 @@ bool isArtisan = false;
 const int pwmPin =  9;         // digital pin for pulse width modulation of heater
 
 // thermocouple reading Max 6675 pins
-const int SO  = 2;		// SO pin on MAX6675
-const int SCKa = 3;		// SCKa pin on MAX6675
-const int CS1 = 6;		// CS (chip 1 select) pin on MAX6675
-const int CS2 = 5;		// CS (chip 2 select)  pin on MAX6675
+const int SO  = 12;		// SO pin on MAX6675
+const int SCKa = 10;		// SCKa pin on MAX6675
+const int CS1 = 11;		// CS (chip 1 select) pin on MAX6675
+const int CS2 = 6;		// CS (chip 2 select)  pin on MAX6675
 
 // pots
 const int potPin = A0;
@@ -185,8 +201,8 @@ byte ardChar[8] = {
 };
 LiquidCrystal_I2C lcd(0x27,16,2);
 
-const int ctrlPin = 12;
-const int ssrCtrlPin = 11;
+const int ctrlPin = 2;
+const int ssrCtrlPin = 3;
 
 /****************************************************************************
  *  After setting the above pin assignments you can use the remainder of this
@@ -254,8 +270,8 @@ void setup()
   
   pinMode(13, OUTPUT); digitalWrite(13, LOW); // force LCD to be off
   
-  lcd.init();
-  lcd.backlight();
+  lcd.begin();
+//  lcd.backlight();
   lcd.createChar(0, ardChar);
   lcd.createChar(1, pcChar);
 
