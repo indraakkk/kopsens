@@ -5360,7 +5360,6 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <part name="RST_BTN" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X2" device="" package3d_urn="urn:adsk.eagle:package:22435/2"/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="0207/10" package3d_urn="urn:adsk.eagle:package:23491/1"/>
 <part name="X1" library="con-ptr500" library_urn="urn:adsk.eagle:library:181" deviceset="AK300/2" device="" package3d_urn="urn:adsk.eagle:package:9881/1"/>
-<part name="P+3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
@@ -5380,7 +5379,6 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <instance part="R1" gate="G$1" x="40.64" y="33.02" rot="R90"/>
 <instance part="X1" gate="-1" x="-15.24" y="45.72"/>
 <instance part="X1" gate="-2" x="-15.24" y="40.64"/>
-<instance part="P+3" gate="1" x="-7.62" y="50.8"/>
 <instance part="GND3" gate="1" x="-7.62" y="38.1"/>
 </instances>
 <busses>
@@ -5441,12 +5439,6 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <wire x1="43.18" y1="48.26" x2="2.54" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="48.26" x2="2.54" y2="58.42" width="0.1524" layer="91"/>
 <junction x="2.54" y="58.42"/>
-</segment>
-<segment>
-<pinref part="X1" gate="-1" pin="KL"/>
-<wire x1="-10.16" y1="45.72" x2="-7.62" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="P+3" gate="1" pin="+5V"/>
-<wire x1="-7.62" y1="45.72" x2="-7.62" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -5530,6 +5522,15 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <wire x1="30.48" y1="63.5" x2="30.48" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="55.88" x2="43.18" y2="55.88" width="0.1524" layer="91"/>
 <label x="22.86" y="63.5" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="X1" gate="-1" pin="KL"/>
+<wire x1="-10.16" y1="45.72" x2="-2.54" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="RAW"/>
+<wire x1="-2.54" y1="45.72" x2="-2.54" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="40.64" x2="43.18" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
